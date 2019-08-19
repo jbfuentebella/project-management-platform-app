@@ -108,7 +108,7 @@ The project contains API to store and fetch project and developer details
                         "name": "Keeley Boyer DVM",
                         "client_name": "Effie Mills",
                         "slug": "Y37YCeJ0",
-                        "lead_developer_id": 5,
+                        "lead_developer_id": "AyXniB0p",
                         "created_at": "2019-08-19 15:56:50",
                         "updated_at": "2019-08-19 15:56:50"
                     },
@@ -116,7 +116,7 @@ The project contains API to store and fetch project and developer details
                         "name": "Mr. Fabian Lubowitz Jr.",
                         "client_name": "Marilie Satterfield",
                         "slug": "w87lEwNU",
-                        "lead_developer_id": 75,
+                        "lead_developer_id": "AyXniB23",
                         "created_at": "2019-08-19 15:56:50",
                         "updated_at": "2019-08-19 15:56:50"
                     },
@@ -145,7 +145,7 @@ The project contains API to store and fetch project and developer details
                 "name": "Keeley Boyer DVM",
                 "client_name": "Effie Mills",
                 "slug": "Y37YCeJ0",
-                "lead_developer_id": 5,
+                "lead_developer_id": "AyXniBe0",
                 "created_at": "2019-08-19 15:56:50",
                 "updated_at": "2019-08-19 15:56:50"
             },
@@ -156,7 +156,7 @@ The project contains API to store and fetch project and developer details
         - BODY (form-data):
             - `name`: Elite Digital PHP Exam
             - `client_name`: Elite Digital
-            - `lead_developer_id`: 2
+            - `lead_developer_id`: "AyXnidgs"
         - RESPONSE: 
         ```
             {
@@ -164,7 +164,7 @@ The project contains API to store and fetch project and developer details
                 "data": {
                     "name": "Elite Digital PHP Exam",
                     "client_name": "Elite Digital",
-                    "lead_developer_id": "2",
+                    "lead_developer_id": "AyXnidgs",
                     "slug": "LGGK7v2i",
                     "updated_at": "2019-08-19 19:09:23",
                     "created_at": "2019-08-19 19:09:23"
