@@ -24,5 +24,22 @@ class DeveloperController extends Controller
 
         return ResponseFormatter::successMsg($developers, 'Developers!');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Developer  $developer
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, $slug)
+    {
+        $developer = Developer::findBySlug($slug);
+
+        if (empty($developer)) {
+            return ResponseFormatter::errorMsg('Developer Not Found.');
+        }
+
+        return ResponseFormatter::successMsg($developer, 'Developer Found!');
+    }
     
 }

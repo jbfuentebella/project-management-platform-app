@@ -2,21 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Project extends Model
+use App\BaseModel;
+
+class Project extends BaseModel
 {
     protected $fillable = [
         'name', 'client_name', 'lead_developer_id', 'slug'
     ];
 
     protected $hidden = ['id'];
-
-    public static function findBySlug($slug)
-    {
-        return self::where('slug', '=', $slug)->first();
-    }
 
     public static function generateUniqueSlug($tokenLength) 
     {

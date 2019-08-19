@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Developer extends Model
+use App\BaseModel;
+
+class Developer extends BaseModel
 {
     const TYPE_FRONTEND = 'frontend';
     const TYPE_BACKEND = 'backend';

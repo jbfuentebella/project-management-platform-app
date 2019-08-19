@@ -10,6 +10,7 @@ Route::group(['middleware' => ['json.response']], function () {
     Route::delete('project/{slug}', 'ProjectController@destroy');
 
     Route::get('developers', 'DeveloperController@index');
+    Route::get('developer/{slug}', 'DeveloperController@show');
 
     Route::fallback(function() {
         return ResponseFormatter::errorMsg('Page Not Found.');
