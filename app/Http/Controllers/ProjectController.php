@@ -16,7 +16,13 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Project::paginate(15);
+        $projects = Project::paginate(15);
+        
+        if (empty($projects)) {
+            return ResponseFormatter::errorMsg('No Results Found.');
+        }
+
+        return ResponseFormatter::successMsg($projects, 'Projects!');
     }
 
     /**
@@ -30,12 +36,13 @@ class ProjectController extends Controller
         $validated = $request->validated();
         
         $project = new Project($validated);
+        $project->slug = Project::generateUniqueSlug(8);
 
         if ($project->save()) {
-            return $this->successMsg($project, 'New Project saved successfully!');
+            return ResponseFormatter::successMsg($project, 'New Project saved successfully!');
         }
 
-        return errrorMsg($project->errors, 'Creating Project failed due to error(s) found.', 422);
+        return ResponseFormatter::errorMsg('Creating Project failed due to error(s) found.', $project->errors, 422);
     }
 
     /**
@@ -46,13 +53,13 @@ class ProjectController extends Controller
      */
     public function show(Request $request, $slug)
     {
-        $project = Project::findByEmail($slug);
+        $project = Project::findBySlug($slug);
 
         if (empty($project)) {
-            return errrorMsg([], 'Project Not Found.', 404);
+            return ResponseFormatter::errorMsg('Project Not Found.');
         }
 
-        return $this->successMsg($project, 'Project Found!');
+        return ResponseFormatter::successMsg($project, 'Project Found!');
     }
 
     /**
@@ -63,16 +70,16 @@ class ProjectController extends Controller
      */
     public function destroy(Request $request, $slug)
     {
-        $project = Project::findByEmail($slug);
+        $project = Project::findBySlug($slug);
 
         if (empty($project)) {
-            return errrorMsg([], 'Project Not Found.', 404);
+            return ResponseFormatter::errorMsg('Project Not Found.');
         }
 
         if ($project->delete()){
-            return $this->successMsg([], 'Project Deleted!');    
+            return ResponseFormatter::successMsg([], 'Project Deleted!');    
+        } else {
+            return ResponseFormatter::errorMsg($project->errors, 'Deleting Project failed due to error(s) found.', 422);    
         }
-
-        return errrorMsg($project->errors, 'Deleting Project failed due to error(s) found.', 422);   
     }
 }
