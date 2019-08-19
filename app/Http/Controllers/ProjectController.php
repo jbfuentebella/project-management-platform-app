@@ -19,7 +19,7 @@ class ProjectController extends Controller
     {
         $projects = Project::paginate(15);
         
-        if (empty($projects)) {
+        if (empty($projects->count())) {
             return ResponseFormatter::errorMsg('No Results Found.');
         }
 

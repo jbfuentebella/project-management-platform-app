@@ -18,7 +18,7 @@ class DeveloperController extends Controller
     {
         $developers = Developer::paginate(15);
         
-        if (empty($developers)) {
+        if (empty($developers->count())) {
             return ResponseFormatter::errorMsg('No Results Found.');
         }
 
