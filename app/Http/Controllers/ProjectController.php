@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\ProjectRequest;
+use App\Project;
+use App\ResponseFormatter;
 
 class ProjectController extends Controller
 {

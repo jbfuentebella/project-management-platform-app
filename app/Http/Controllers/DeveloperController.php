@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Developer;
 use App\ResponseFormatter;
-use Illuminate\Http\Request;
 
 class DeveloperController extends Controller
 {
