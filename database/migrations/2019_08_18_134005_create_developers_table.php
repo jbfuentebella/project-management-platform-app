@@ -20,6 +20,7 @@ class CreateDevelopersTable extends Migration
             $table->string('name')->nullable(false);
             $table->enum('type', ['frontend', 'backend'])
                 ->nullable(false);
+            $table->uuid('slug')->nullable(false);
             $table->timestamps();
         });
     }
