@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Developer;
+use App\Project;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Developer::truncate();
+        Project::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        
+        $this->call(DeveloperTableSeeder::class);
+        $this->call(ProjectTableSeeder::class);
     }
 }
