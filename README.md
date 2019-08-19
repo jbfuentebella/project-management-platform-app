@@ -89,7 +89,8 @@ The project contains API to store and fetch project and developer details
 4. **Seed**
     - Locate your project
     - Run the following command:
-    ``` 
+    ```
+    php artisan migrate 
     php artisan db:seed 
     ```
 ### Test
