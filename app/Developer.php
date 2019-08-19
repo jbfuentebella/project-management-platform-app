@@ -12,9 +12,7 @@ class Developer extends Model
 
     protected $fillable = ['name', 'type', 'slug'];
 
-    protected $attributes = [
-        'slug' => self::self::generateUniqueSlug(8),
-    ];
+    protected $hidden = ['id'];
 
     public static function generateUniqueSlug($tokenLength) 
     {
@@ -28,5 +26,10 @@ class Developer extends Model
     public function projects()
     {
         return $this->hasMany('App\Project');
+    }
+
+    public static function getTypes() 
+    {
+        return [self::TYPE_BACKEND => 'Backend', self::TYPE_FRONTEND => 'Backend'];
     }
 }

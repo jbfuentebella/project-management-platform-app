@@ -11,9 +11,7 @@ class Project extends Model
         'name', 'client_name', 'lead_developer_id', 'slug'
     ];
 
-    protected $attributes = [
-        'slug' => self::self::generateUniqueSlug(8),
-    ];
+    protected $hidden = ['id'];
 
     public static function findBySlug($slug)
     {
