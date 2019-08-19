@@ -19,11 +19,11 @@ class CreateProjectsTable extends Migration
                 ->autoIncrement();
             $table->string('name')->nullable(false);
             $table->string('client_name')->nullable(false);
-            $table->uuid('slug')->nullable(false);
-            $table->unsignedBigInteger('lead_developer_id')->nullable(false);
+            $table->string('slug')->unique()->nullable(false);
+            $table->string('lead_developer_id')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('lead_developer_id')->references('id')->on('developers');
+            $table->foreign('lead_developer_id')->references('slug')->on('developers');
         });
     }
 

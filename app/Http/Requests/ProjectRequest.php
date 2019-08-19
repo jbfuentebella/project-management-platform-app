@@ -26,7 +26,7 @@ class ProjectRequest extends FormRequest
         return [
             'name' => 'required',
             'client_name' => 'required',
-            'lead_developer_id' => 'required|integer|exists:developers,id',
+            'lead_developer_id' => 'required|exists:developers,slug',
         ];
     }
 

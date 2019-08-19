@@ -16,13 +16,13 @@ class ProjectTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        $availableDevIds = Developer::where('id', '>', 0)->pluck('id')->toArray();
+        $availableDevSlugs = Developer::where('id', '>', 0)->pluck('slug')->toArray();
 
         for ($i = 0; $i < 150; $i++) {
             Project::create([
                 'name' => $faker->name,
                 'client_name' => $faker->name,
-                'lead_developer_id' => $availableDevIds[array_rand($availableDevIds, 1)],
+                'lead_developer_id' => $availableDevSlugs[array_rand($availableDevSlugs, 1)],
                 'slug' => Project::generateUniqueSlug(8) 
             ]);
         }

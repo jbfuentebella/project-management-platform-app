@@ -25,6 +25,6 @@ class Project extends BaseModel
 
     public function leadDeveloper()
     {
-        return $this->belongsTo('App\Developer');
+        return $this->belongsTo('App\Developer', 'lead_developer_id', 'slug');
     }
 }
